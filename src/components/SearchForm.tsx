@@ -1,5 +1,17 @@
+import { useEffect } from "react";
 
 const SearchForm = () => {
+    useEffect(() => {
+        fetch('https://api.spoonacular.com/recipes/findByIngredients?apiKey=7bc04871f03a42f593056ecec84492fb&ingredients=carrots,tomatoes&number=1')
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error(`Error: ${res.status}`);
+                }
+                return res.json();
+            })
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err.message));
+    }, []);
     return (
         <div className="container mt-4">
             <div className="card border-0 rounded-3 p-3 d-flex align-items-center">
