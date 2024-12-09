@@ -26,9 +26,7 @@ const SignUp = () => {
             });
 
             console.log("User signed up and data saved to Firestore:", user);
-
-            const navigate = useNavigate();
-            navigate('/home');
+            location.reload();
         } catch (error: any) {
             setError(error.message);
         } finally {
