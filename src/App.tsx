@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Auth from "./components/Auth";
 import { auth } from "./components/firebase-config"; // Firebase setup
 import Home from './components/Home';
@@ -36,7 +36,7 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={user ? <Home /> : <Navigate to="/auth" />}
+          element={user ? <Home /> : <Auth />}
         />
         <Route path="/auth" element={<Auth />} />
       </Routes>

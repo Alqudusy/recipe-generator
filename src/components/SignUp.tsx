@@ -1,7 +1,6 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { auth, db } from "./firebase-config";
 
 const SignUp = () => {
@@ -26,9 +25,7 @@ const SignUp = () => {
             });
 
             console.log("User signed up and data saved to Firestore:", user);
-
-            const navigate = useNavigate();
-            navigate('/home');
+            location.reload();
         } catch (error: any) {
             setError(error.message);
         } finally {
